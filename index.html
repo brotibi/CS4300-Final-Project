@@ -1,47 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <title>Vroom</title>
+        <style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
     </head>
-    <body onload="init();">
-        <canvas id = "game-window" width = "1600" height = "1000">
-            Your browser does not support HTML5
-        </canvas>
-        <!-- vertex shader -->
-        <script  id="vertex-shader-3d" type="x-shader/x-vertex">
-            attribute vec4 a_position;
-            attribute vec4 a_color;
-            
-            uniform mat4 u_matrix;
-            uniform float u_fudgeFactor;
-            
-            varying vec4 v_color;
-            
-            void main() {
-            // Multiply the position by the matrix.
-            vec4 position = u_matrix * a_position;
-            
-            // Adjust the z to divide by
-            float zToDivideBy = 1.0 + position.z * u_fudgeFactor;
-            
-            // Divide x and y by z.
-            gl_Position = vec4(position.xy / zToDivideBy, position.zw);
-            
-            // Pass the color to the fragment shader.
-            v_color = a_color;
-            }
-        </script>
-        <!-- fragment shader -->
-        <script  id="fragment-shader-3d" type="x-shader/x-fragment">
-            precision mediump float;
-            
-            // Passed in from the vertex shader.
-            varying vec4 v_color;
-            
-            void main() {
-            gl_FragColor = v_color;
-            }
-        </script>
-        <script src = "app.js"></script>
+    <body>
+        <!-- JavaScript files -->
+        <script src = "three.js"></script>
+        <script src='THREEx.KeyboardState.js'></script>
+        <script src = "init.js"></script>
+        <script src = "player.js"></script>
+        <script src = "input.js"></script>
+        <script src = "gui.js"></script>
+        <script src = "level.js"></script>
+        <script src = "enemy.js"></script>
+        <script src = "update.js"></script>
+        <script src = "main.js"></script>
     </body>
 </html>
