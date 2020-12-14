@@ -32,7 +32,7 @@ class Player {
 
             var ray = new THREE.Raycaster( this.mesh.position, directionVector.clone().normalize() );
             var collisionResults = ray.intersectObjects( getEnemyMesh() );
-            if ( collisionResults.length > 0 && collisionResults[0].distance < directionVector.length()/2 ) {
+            if ( collisionResults.length > 0 && collisionResults[0].distance*10 < directionVector.length() ) {
                 // a collision occurred... do something...
                 console.log("collision")
                 gameOver = true
@@ -43,7 +43,7 @@ class Player {
 }
 
 var material = new THREE.MeshBasicMaterial( { color: 0x000000 } );
-var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var geometry = new THREE.SphereGeometry( 1, 32, 32);
 var playerMesh = new THREE.Mesh( geometry, material );
 
 

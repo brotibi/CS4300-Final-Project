@@ -1,6 +1,6 @@
 
 function gameIsOver() {
-    var hudBitmap = hudCanvas.getContext('2d');
+    /*var hudBitmap = hudCanvas.getContext('2d');
     hudBitmap.font = "Normal 40px Arial";
     hudBitmap.textAlign = 'center';
     hudBitmap.fillStyle = "rgba(0,0,0,1)";
@@ -14,7 +14,7 @@ function gameIsOver() {
         // Create plane to render the HUD. This plane fill the whole screen.
     var planeGeometry = new THREE.PlaneGeometry( width, height );
     hplane = new THREE.Mesh( planeGeometry, material );
-    sceneHUD.add( hplane );
+    sceneHUD.add( hplane );*/
 }
 
 var animate = function () {
@@ -33,6 +33,8 @@ var animate = function () {
     } else {
         gameIsOver()
         //return;
+        alert("Game Over")
+        window.location.reload()
     }
 
     renderer.render( scene, camera );
