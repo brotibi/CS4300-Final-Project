@@ -20,6 +20,7 @@ function update() {
     updatePlayer()
     updateEnemies(enemies)
     enemySpawn()
+    
 }
 
 
@@ -34,16 +35,18 @@ function spawnDemon() {
 }
 
 function spawnDemonBrain() {
-    var demonBrain = new DemonBrain()
-    enemies.push(demonBrain)
+    var demonBrain1 = new DemonBrain(-3.5)
+    var demonBrain2 = new DemonBrain(3.5)
+    enemies.push(demonBrain1)
+    enemies.push(demonBrain2)
 }
 
 
-var spawnInt = setInterval(spawnBlockade, 2000) 
+var spawnInt = setInterval(spawnBlockade, 4000) 
 
-var spawnInt2 = setInterval(spawnDemon, 2000) 
+var spawnInt2 = setInterval(spawnDemon, 7000) 
 
-var spawnInt3 = setInterval(spawnDemonBrain, 2000) 
+var spawnInt3 = setInterval(spawnDemonBrain, 9000) 
 
 function enemySpawn() {
     

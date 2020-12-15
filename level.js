@@ -10,8 +10,19 @@ var wall3 = new THREE.Mesh( wallGeometry, wallMaterial );
 var wall4 = new THREE.Mesh( wallGeometry, wallMaterial );
 
 
+
+
+
 // Plane
-var plane = new THREE.Mesh( new THREE.PlaneGeometry( 100, 100, 0, 0 ), new THREE.MeshBasicMaterial( { color: 0xd3d3d3, opacity: 0.25 } ) );
+dirt  = texLoader.load( './dirt.jpeg' );
+dirt.wrapS = THREE.RepeatWrapping;
+dirt.wrapT = THREE.RepeatWrapping;
+const planeMat = new THREE.MeshPhongMaterial({
+    map: dirt,
+    side: THREE.DoubleSide,
+  });
+var plane = new THREE.Mesh( new THREE.PlaneGeometry( 100, 100, 0, 0 ), planeMat );
+plane.receiveShadow = true;
 plane.rotation.x = degToRad(-90)
 plane.position.y = -1;
 plane.visible = true;

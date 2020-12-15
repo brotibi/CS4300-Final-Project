@@ -15,6 +15,9 @@ function gameIsOver() {
     var planeGeometry = new THREE.PlaneGeometry( width, height );
     hplane = new THREE.Mesh( planeGeometry, material );
     sceneHUD.add( hplane );*/
+    alert("Game Over")
+    window.location.reload()
+    return
 }
 
 var animate = function () {
@@ -32,9 +35,8 @@ var animate = function () {
 
     } else {
         gameIsOver()
-        //return;
-        alert("Game Over")
-        window.location.reload()
+        return;
+        
     }
 
     renderer.render( scene, camera );
